@@ -1,0 +1,1 @@
+Those are mainly the config files from http://jenkins-php.org/ with some changes by me. The job template to use can be found under https://github.com/sebastianbergmann/php-jenkins-template.
