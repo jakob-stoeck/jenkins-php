@@ -3,6 +3,7 @@
 
  <target name="clean">
   <!-- Clean up -->
+  <delete dir="generatedJUnitFiles"/>
   <delete dir="${basedir}/build"/>
 
   <!-- Create build directories -->
@@ -18,10 +19,9 @@
   <exec executable="phpunit" failonerror="true"/>
  </target>
 
- <!-- Run the pdepend, phpmd, phpcpd, phpcs, phpdoc and phploc tasks
-      in parallel using a maximum of 2 threads. -->
+ <!-- Don't run with more than 1 thread because openvz has java memory allocation problems. -->
  <target name="parallelTasks">
-  <parallel threadCount="2">
+  <parallel threadCount="1">
    <sequential>
     <antcall target="pdepend"/>
     <antcall target="phpmd"/>
