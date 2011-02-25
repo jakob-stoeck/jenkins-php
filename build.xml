@@ -32,6 +32,16 @@
   </parallel>
  </target>
 
+ <!-- update db -->
+ <target name="updatedb">
+	<exec executable="mysql" input="${basedir}/src/protected/data/schema.mysql.sql">
+		<arg line="-u msg_test -ptest artists_poker_test" />
+	</exec>
+	<exec executable="mysql" input="${basedir}/src/protected/data/pythonpokernetwork.mysql.sql">
+		<arg line="-u msg_test -ptest artists_poker_test" />
+	</exec>
+ </target> 
+
  <!-- Generate jdepend.xml and software metrics charts -->
  <target name="pdepend">
   <exec executable="pdepend">
